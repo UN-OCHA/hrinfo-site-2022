@@ -27,6 +27,7 @@ module:
   env_link_fixer: 0
   environment_indicator: 0
   environment_indicator_ui: 0
+  externalauth: 0
   field: 0
   field_group: 0
   field_ui: 0
@@ -56,6 +57,7 @@ module:
   jquery_ui_dialog: 0
   jquery_ui_draggable: 0
   jquery_ui_resizable: 0
+  key: 0
   language: 0
   layout_builder: 0
   layout_discovery: 0
@@ -76,8 +78,11 @@ module:
   monitoring: 0
   mysql: 0
   node: 0
+  ocha_azure_tweaks: 0
   ocha_monitoring: 0
   ocha_search: 0
+  openid_connect: 0
+  openid_connect_windows_aad: 0
   options: 0
   override_node_options: 0
   page_cache: 0
@@ -96,7 +101,6 @@ module:
   shortcut: 0
   social_api: 0
   social_auth: 0
-  social_auth_hid: 0
   sophron: 0
   subgroup: 0
   syslog: 0

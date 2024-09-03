@@ -1,0 +1,13 @@
+diff --git a/src/Plugin/OpenIDConnectClient/WindowsAad.php b/src/Plugin/OpenIDConnectClient/WindowsAad.php
+index 8845843..6431581 100644
+--- a/src/Plugin/OpenIDConnectClient/WindowsAad.php
++++ b/src/Plugin/OpenIDConnectClient/WindowsAad.php
+@@ -318,7 +318,7 @@ as the mapping between Azure AD accounts and Drupal users.<br/>
+       case 2:
+         $v2 = str_contains($endpoints['token'], '/oauth2/v2.0/');
+         if (!$v2) {
+-          $request_options['form_params']['resource'] = 'https://graph.microsoft.com';
++          $request_options['form_params']['scope'] = 'https://graph.microsoft.com/.default';
+         }
+         break;
+     }

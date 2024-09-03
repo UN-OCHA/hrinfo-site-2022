@@ -1,0 +1,28 @@
+uuid: 4c32d99c-e393-41c5-9c81-02a8630f2768
+langcode: en
+status: true
+dependencies:
+  module:
+    - openid_connect_windows_aad
+id: azure_b2c_signup
+label: 'Azure B2C (Signup Workflow)'
+plugin: windows_aad
+settings:
+  client_id: 64661a42-4710-4bfd-97ab-916bcfeddb59
+  client_secret: azure_b2c_client_secret
+  authorization_endpoint_wa: 'https://unb2c.b2clogin.com/unb2c.onmicrosoft.com/B2C_1_OCHA_SIGNUP/oauth2/v2.0/authorize'
+  token_endpoint_wa: 'https://unb2c.b2clogin.com/unb2c.onmicrosoft.com/B2C_1_OCHA_SIGNUP/oauth2/v2.0/token'
+  userinfo_endpoint_wa: ''
+  map_ad_groups_to_roles: true
+  group_mapping:
+    method: 0
+    mappings: ''
+    strict: false
+  userinfo_graph_api_wa: 1
+  userinfo_graph_api_use_other_mails: false
+  userinfo_update_email: true
+  hide_email_address_warning: false
+  subject_key: sub
+  end_session_endpoint: 'https://unb2c.b2clogin.com/unb2c.onmicrosoft.com/B2C_1_OCHA_SIGNUP/oauth2/v2.0/logout'
+  iss_allowed_domains: 'https://feature.response-reliefweb-int.ahconu.org'
+  front_channel_logout_url: ''

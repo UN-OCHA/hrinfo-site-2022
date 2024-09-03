@@ -69,6 +69,8 @@
         "drupal/masquerade": "^2.0@beta",
         "drupal/memcache": "^2.3",
         "drupal/metatag": "^2.0",
+        "drupal/openid_connect": "dev-3.x",
+        "drupal/openid_connect_windows_aad": "^2.0@beta",
         "drupal/override_node_options": "^2.6",
         "drupal/paragraphs_admin": "^1.4",
         "drupal/pathauto": "^1.8",
@@ -101,6 +103,7 @@
         "rlanvin/php-rrule": "2.3.1",
         "unocha/common_design": "^9",
         "unocha/gtm_barebones": "^1.0",
+        "unocha/ocha_azure_tweaks": "^0.1.0",
         "unocha/ocha_monitoring": "^1.0",
         "unocha/ocha_search": "^1.0"
     },

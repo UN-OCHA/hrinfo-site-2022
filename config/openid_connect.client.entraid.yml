@@ -1,0 +1,28 @@
+uuid: ff1f957d-f7d8-44e2-ac3c-2050bc2befa9
+langcode: en
+status: true
+dependencies:
+  module:
+    - openid_connect_windows_aad
+id: entraid
+label: 'Entra ID (UNITE ID)'
+plugin: windows_aad
+settings:
+  client_id: 60f61dfa-1af4-4b6a-bb62-73c95ead00d1
+  client_secret: entraid_client_secret
+  authorization_endpoint_wa: 'https://login.microsoftonline.com/0f9e35db-544f-4f60-bdcc-5ea416e6dc70/oauth2/v2.0/authorize'
+  token_endpoint_wa: 'https://login.microsoftonline.com/0f9e35db-544f-4f60-bdcc-5ea416e6dc70/oauth2/v2.0/token'
+  userinfo_endpoint_wa: ''
+  map_ad_groups_to_roles: false
+  group_mapping:
+    method: 0
+    mappings: ''
+    strict: false
+  userinfo_graph_api_wa: 0
+  userinfo_graph_api_use_other_mails: false
+  userinfo_update_email: true
+  hide_email_address_warning: false
+  subject_key: sub
+  end_session_endpoint: ''
+  iss_allowed_domains: 'https://feature.response-reliefweb-int.ahconu.org'
+  front_channel_logout_url: ''

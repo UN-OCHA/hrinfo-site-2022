@@ -1,0 +1,17 @@
+diff --git a/src/Controller/OpenIDConnectRedirectController.php b/src/Controller/OpenIDConnectRedirectController.php
+index 3271c54..a4fc578 100644
+--- a/src/Controller/OpenIDConnectRedirectController.php
++++ b/src/Controller/OpenIDConnectRedirectController.php
+@@ -295,7 +295,11 @@ class OpenIDConnectRedirectController implements ContainerInjectionInterface, Ac
+         if ($op === 'login') {
+           $success = $this->openIDConnect->completeAuthorization($openid_connect_client, $tokens);
+ 
+-          if (!$success) {
++          // We need the full user object to check if the account is blocked.
++          $account = $this->currentUser->getAccount();
++
++          // Display an error if the current user is blocked and not anonymous.
++          if (!$success && $this->currentUser->id() && !$account->isBlocked()) {
+             $this->messenger()->addError($this->t('Logging in with @provider could not be completed due to an error.', $provider_param));
+           }
+         }

@@ -2,8 +2,6 @@ uuid: c5c9acdd-386d-4c9c-a63b-0d2c851b0d08
 langcode: en
 status: true
 dependencies:
-  module:
-    - user
   theme:
     - common_design_subtheme
 _core:
@@ -21,11 +19,4 @@ settings:
   provider: core
   primary: true
   secondary: false
-visibility:
-  user_role:
-    id: user_role
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-    roles:
-      authenticated: authenticated
+visibility: {  }
