@@ -1,0 +1,111 @@
+<?php
+
+/**
+ * @file
+ * User merger.
+ */
+
+use Drupal\Core\Entity\ContentEntityTypeInterface;
+use Drupal\Core\Entity\Sql\SqlEntityStorageInterface;
+use Drupal\group\Entity\GroupMembership;
+use Drupal\user\Entity\User;
+
+/**
+ * Merge user ids.
+ */
+function user_merger_merge_ids(int $new_id, array|string $retired_ids = []) {
+  $results = user_merger_get_fields('entity_reference', 'user');
+  $connection = \Drupal::database();
+
+  if (!is_array($retired_ids)) {
+    $retired_ids = [
+      $retired_ids,
+    ];
+  }
+
+  $log = [];
+
+  foreach ($results as $entity_type => $fields) {
+    $log[] = 'Processing ' . $entity_type;
+    foreach ($fields as $field) {
+      $log[] = 'Processing ' . $field['name'];
+      foreach ($field['tables'] as $table) {
+        $log[] = 'Processing ' . $table;
+        $num = $connection->update($table)
+          ->fields([$field['name'] => $new_id])
+          ->condition($field['name'], $retired_ids, 'IN')
+          ->execute();
+        $log[] = 'Updated ' . $num . ' records';
+      }
+    }
+  }
+
+  // Add group memberships.
+  if (Drupal::moduleHandler()->moduleExists('group')) {
+    $new_user = User::load($new_id);
+    foreach ($retired_ids as $retired_id) {
+      $user = User::load($retired_id);
+      $group_memberships = GroupMembership::loadByUser($user);
+
+      foreach ($group_memberships as $group_membership) {
+        /** @var \Drupal\group\Entity\GroupRelationshipInterface $relation */
+        $group = $group_membership->getGroup();
+        if ($group->getMember($new_user)) {
+          // Already a member.
+          continue;
+        }
+
+        $group->addMember($new_user, [
+          'group_roles' => $group_membership->getRoles(FALSE),
+        ]);
+
+        $group_membership->delete();
+      }
+    }
+  }
+
+  // Delete the account(s).
+  foreach ($retired_ids as $retired_id) {
+    $user = User::load($retired_id);
+    $user->delete();
+  }
+
+  // Clear all cache.
+  drupal_flush_all_caches();
+}
+
+/**
+ * Get field and table information.
+ */
+function user_merger_get_fields(string $type, string $target = '') : array {
+  $entity_type_manager = \Drupal::entityTypeManager();
+  /** @var \Drupal\Core\Entity\EntityFieldManagerInterface $field_manager */
+  $field_manager = \Drupal::service('entity_field.manager');
+
+  $tables = [];
+  foreach ($entity_type_manager->getDefinitions() as $entity_type) {
+    // Only list content entity types using SQL storage.
+    if ($entity_type instanceof ContentEntityTypeInterface && in_array(SqlEntityStorageInterface::class, class_implements($entity_type->getStorageClass()))) {
+      $storage = $entity_type_manager->getStorage($entity_type->id());
+
+      foreach ($field_manager->getFieldStorageDefinitions($entity_type->id()) as $field) {
+        if (!empty($type) && $field->getType() != $type) {
+          continue;
+        }
+
+        if (!empty($target) && $field->getSetting('target_type') != $target) {
+          continue;
+        }
+        $tables[$entity_type->id()][$field->getName()] = [
+          'entity' => $entity_type->id(),
+          'name' => $field->getName(),
+          'type' => $field->getType(),
+          'target' => $field->getSetting('target_type') ?? '',
+          'tables' => $storage->getTableMapping()->getAllFieldTableNames($field->getName()),
+        ];
+      }
+    }
+  }
+
+  return $tables;
+}

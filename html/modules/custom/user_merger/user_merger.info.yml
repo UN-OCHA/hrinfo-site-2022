@@ -1,0 +1,4 @@
+name: 'User Merger'
+description: 'Merge user accounts, using DB queries'
+type: module
+core_version_requirement: ^10 || ^11
