@@ -136,7 +136,19 @@
   {% endif %}
 
   <div{{ content_attributes }}>
-    {{ content }}
+    {% block section %}
+      <div class="cd-layout">
+        <div class="cd-layout__content">
+          {{ content }}
+        </div>
+
+        {% if field_sidebar_menu is not empty %}
+          <aside class="cd-layout__sidebar cd-layout__sidebar--first cd-content--compact" aria-label="{{ 'Sidebar'|t }}">
+            {{ field_sidebar_menu }}
+          </aside>
+        {% endif %}
+      </div>
+    {% endblock %}
   </div>
 
 </article>
