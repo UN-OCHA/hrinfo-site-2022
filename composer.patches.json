@@ -26,9 +26,6 @@
       "Recognize previous revisions https://www.drupal.org/project/linkchecker/issues/3366753": "./PATCHES/linkchecker-previous-revisions-3366753.patch",
       "Fallback to GET if HEAD fails - https://www.drupal.org/project/linkchecker/issues/3334240": "./PATCHES/linkchecker-fallback-get-3334240.diff"
     },
-    "drupal/social_auth_hid": {
-      "Keep lang prefix in URL": "./PATCHES/hid_lang.patch"
-    },
     "drupal/user_expire": {
       "Allow the notification email to be customised": "PATCHES/user_expire-customize-notification-email.patch",
       "Reset expiration when user is reactivated": "PATCHES/user_expire-reset-expiration-on-reactivation.patch"

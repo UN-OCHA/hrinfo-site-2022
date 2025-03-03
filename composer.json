@@ -75,7 +75,7 @@
         "drupal/redirect": "^1.8",
         "drupal/seckit": "^2.0",
         "drupal/select2": "^1.13",
-        "drupal/social_auth_hid": "^3.0",
+        "drupal/social_auth_hid": "^5",
         "drupal/stage_file_proxy": "^3",
         "drupal/subgroup": "^3",
         "drupal/theme_switcher": "^2",

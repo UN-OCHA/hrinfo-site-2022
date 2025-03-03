@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "59f497019435d80e104ace6c6263c181",
+    "content-hash": "fc8eed108cf40b22431b2c0c1637511b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4347,7 +4347,7 @@
                 "shasum": "fc8ea60619b6b4682bade340e13fb4565d3a7e0c"
             },
             "require": {
-                "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12"
+                "drupal/core": "^10"
             },
             "type": "drupal-module",
             "extra": {
@@ -5213,20 +5213,20 @@
         },
         {
             "name": "drupal/social_api",
-            "version": "3.1.0",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/social_api.git",
-                "reference": "3.1.0"
+                "reference": "4.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/social_api-3.1.0.zip",
-                "reference": "3.1.0",
-                "shasum": "ceb8b35f718657a8f3d67d2e9a8384d4b35687ea"
+                "url": "https://ftp.drupal.org/files/projects/social_api-4.0.2.zip",
+                "reference": "4.0.2",
+                "shasum": "8da084f0262080b2dfbbaa0ffb72cc386c6221dc"
             },
             "require": {
-                "drupal/core": "^9.1 || ^10",
+                "drupal/core": "^9.5 || ^10 || ^11",
                 "ext-openssl": "*",
                 "league/oauth2-client": "^2.0"
             },
@@ -5237,8 +5237,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.1.0",
-                    "datestamp": "1660188487",
+                    "version": "4.0.2",
+                    "datestamp": "1725453406",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5290,30 +5290,32 @@
         },
         {
             "name": "drupal/social_auth",
-            "version": "3.1.0",
+            "version": "4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/social_auth.git",
-                "reference": "3.1.0"
+                "reference": "4.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/social_auth-3.1.0.zip",
-                "reference": "3.1.0",
-                "shasum": "9225e99d2a482ca82bb7faeefd2eb92867bf0f1a"
+                "url": "https://ftp.drupal.org/files/projects/social_auth-4.1.2.zip",
+                "reference": "4.1.2",
+                "shasum": "84dca21b4bce83ef9a1e6887d507f15829f9b6bc"
             },
             "require": {
-                "drupal/core": "^9.3 || ^10",
-                "drupal/social_api": "^3"
+                "drupal/core": "^9.5 || ^10 || ^11",
+                "drupal/social_api": "^4.0",
+                "php": ">=8.1"
             },
             "require-dev": {
-                "drupal/coder": "^8.3"
+                "drupal/coder": "^8.3",
+                "phpcompatibility/php-compatibility": "^9.3"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.1.0",
-                    "datestamp": "1660225275",
+                    "version": "4.1.2",
+                    "datestamp": "1731637091",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5355,34 +5357,34 @@
                 "Drupal"
             ],
             "support": {
-                "source": "http://cgit.drupalcode.org/social_auth",
+                "source": "https://git.drupalcode.org/project/social_auth",
                 "issues": "https://www.drupal.org/project/issues/social_auth"
             }
         },
         {
             "name": "drupal/social_auth_hid",
-            "version": "3.2.0",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/social_auth_hid.git",
-                "reference": "8.x-3.2"
+                "reference": "5.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/social_auth_hid-8.x-3.2.zip",
-                "reference": "8.x-3.2",
-                "shasum": "6506fb35d8cc4a9abad88217c32af8ff12ad4b11"
+                "url": "https://ftp.drupal.org/files/projects/social_auth_hid-5.0.0.zip",
+                "reference": "5.0.0",
+                "shasum": "f7f704839e1ea135f94cd7a0469fdae46fd5bbee"
             },
             "require": {
-                "drupal/core": "^9 || ^10",
-                "drupal/social_auth": "^3.0",
+                "drupal/core": "^9 || ^10 || ^11",
+                "drupal/social_auth": "^4.0",
                 "un-ocha/oauth2-hid": "^1.0.2"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.2",
-                    "datestamp": "1653898962",
+                    "version": "5.0.0",
+                    "datestamp": "1739953549",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5684,7 +5686,7 @@
                 "shasum": "4aa9b119c9c992fd9930fa50f97cd89959c3bafb"
             },
             "require": {
-                "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12"
+                "drupal/core": "^10"
             },
             "type": "drupal-module",
             "extra": {
